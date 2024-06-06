@@ -1,16 +1,17 @@
-# Rattarapage de Programmation mobile
+Implémentation et respect de l'interface graphique fournie
+	- Design respecté pour la page détail de la météo d'une ville
+	- Design non terminé pour la page recherche ville
+Implémentation de la requête de recherche de ville
+	- Recherche des coordonées d'une ville ( latitude, longitude ) grace a l'api geoCoding
+	  https://api.opencagedata.com/geocode/v1
+Implémentation de la requête pour la météo d'une ville
+	- Recherche de la meteo d'une ville a partir de ses coordonnées grace a l'api open meteo
+Gestion de l'état pour les villes (BLoC)
+Gestion de l'état pour la météo d'une ville
+Gestion des états pour l'utilisateur lors des requêtes 
+(erreur, chargement)
+	- Message d'erreur lorsque qu'il est imossible de récuperer les informations
 
-A new Flutter project.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Détails d'une ville
+	- Direction du vent 
