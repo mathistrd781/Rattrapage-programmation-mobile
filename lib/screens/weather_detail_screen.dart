@@ -30,6 +30,8 @@ class WeatherDetailScreen extends StatelessWidget {
   }
 
   TextStyle textStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 18);
+  TextStyle infoTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.black);
+  TextStyle valueTextStyle = TextStyle(fontWeight: FontWeight.bold, fontSize: 16, color: Colors.purple);
 
   @override
   Widget build(BuildContext context) {
@@ -222,52 +224,77 @@ class WeatherDetailScreen extends StatelessWidget {
                           style: textStyle,
                         ),
                         SizedBox(height: 8),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/direction-1.svg',
-                              width: 24,
-                              height: 24,
-                            ),
-                            SizedBox(width: 8),
-                            Text("Température apparente max: ${daily['apparent_temperature_max'][0]}°C", style: textStyle),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/rain-drop-3.svg',
-                              width: 24,
-                              height: 24,
-                            ),
-                            SizedBox(width: 8),
-                            Text("Probabilité de précipitation max: ${daily['precipitation_probability_max'][0]}%", style: textStyle),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/windy-1.svg',
-                              width: 24,
-                              height: 24,
-                            ),
-                            SizedBox(width: 8),
-                            Text("Vitesse du vent max: ${daily['wind_speed_10m_max'][0]} km/h", style: textStyle),
-                          ],
-                        ),
-                        SizedBox(height: 8),
-                        Row(
-                          children: [
-                            SvgPicture.asset(
-                              'assets/icons/rain-drops-1.svg',
-                              width: 24,
-                              height: 24,
-                            ),
-                            SizedBox(width: 8),
-                            Text("Humidité: 24%", style: textStyle),
-                          ],
+                        Container(
+                          padding: EdgeInsets.all(16.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey.withOpacity(0.5),
+                                spreadRadius: 5,
+                                blurRadius: 7,
+                                offset: Offset(0, 3),
+                              ),
+                            ],
+                          ),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Column(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/icons/rain-drops-3.svg',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text("Chances de pluie", style: infoTextStyle),
+                                  SizedBox(height: 4),
+                                  Text("0%", style: valueTextStyle),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/icons/rain-drops-1.svg',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text("Taux d'humidité", style: infoTextStyle),
+                                  SizedBox(height: 4),
+                                  Text("24%", style: valueTextStyle),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/icons/windy-1.svg',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text("Vent", style: infoTextStyle),
+                                  SizedBox(height: 4),
+                                  Text("${daily['wind_speed_10m_max'][0]} km/h", style: valueTextStyle),
+                                ],
+                              ),
+                              Column(
+                                children: [
+                                  SvgPicture.asset(
+                                    'assets/icons/direction-1.svg',
+                                    width: 40,
+                                    height: 40,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text("Température ressentie", style: infoTextStyle),
+                                  SizedBox(height: 4),
+                                  Text("${daily['apparent_temperature_max'][0]}°C", style: valueTextStyle),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     );
