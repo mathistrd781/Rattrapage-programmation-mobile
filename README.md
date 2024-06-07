@@ -1,3 +1,5 @@
+Mathis Tridon
+
 Implémentation et respect de l'interface graphique fournie
 	- Design respecté pour la page détail de la météo d'une ville
 	- Design non terminé pour la page recherche ville
